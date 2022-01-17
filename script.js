@@ -18,6 +18,7 @@ const createEventListeners = () => {
 };
 
 const generateItems = (items) => {
+  // Generate the ui for the task list
   let itemsHTML = "";
 
   items.forEach((item) => {
@@ -43,10 +44,12 @@ const generateItems = (items) => {
 };
 
 const countItems = (items) => {
+  // Keep a count of all actives items in the app
   numberOfTask.textContent = `${items.length} Items left`;
 };
 
 const getItemsDb = () => {
+  // get the items from LocalStorage and call generateItems()
   const data = localStorage.getItem("todos");
 
   if (data === null) {
@@ -65,9 +68,10 @@ const getItemsDb = () => {
   }
 };
 
-window.onload = getItemsDb();
+window.onload = getItemsDb(); // Get the items when the app load
 
 const submitData = (data) => {
+  // Submit data to local storage
   const todos = JSON.parse(localStorage.getItem("todos"));
 
   const newTodo = {
@@ -94,6 +98,7 @@ form.addEventListener("submit", (e) => {
 // ----------------------- generate Items section
 
 const markComplete = (id) => {
+  // Mark a task as completed
   const data = localStorage.getItem("todos");
   const todos = JSON.parse(data);
 
